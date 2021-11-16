@@ -1,3 +1,36 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+notas_alumno:
+  path: /notas/{idAlumno}
+  defaults: { _controller: App\Controller\NotaController:listNotas }
+  requirements:
+    idAlumno: '\d+'
+
+asignaturas_alumno:
+  path: /asignaturas/{idAlumno}
+  defaults: { _controller: App\Controller\AsignaturaController:listAsignaturas }
+  requirements:
+    idAlumno: '\d+'
+
+asignaturas_desmaAlumno:
+  path: /asignaturas/desmaAlumno/{idAsig}/{idAlumno}
+  defaults: { _controller: App\Controller\AsignaturaController:desmaAsignatura }
+  requirements:
+    idAsig: '\d+'
+    idAlumno: '\d+'
+
+asignaturas_matriAlumno:
+  path: /asignaturas/matriAlumno/{idAsig}/{idAlumno}
+  defaults: { _controller: App\Controller\AsignaturaController:matriAsignatura }
+  requirements:
+    idAsig: '\d+'
+    idAlumno: '\d+'
+
+listaUsuarios:
+  path: /listaUsuarios
+  defaults: { _controller: App\Controller\AlumnoController:listUsuarios }
+
+homepage:
+  path: /
+  defaults: { _controller: App\Controller\AlumnoController:listUsuarios }

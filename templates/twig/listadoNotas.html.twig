@@ -1,0 +1,31 @@
+
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Nota</th>
+        <th>Fecha</th>
+        <th></th>
+    </tr>
+    {% for item in notasAlumno %}
+        <tr>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.nota }}</td>
+            <td>{{ item.fecha|date('d-m-Y') }}</td>
+            {% if item.nota >= 5 %}
+                <td>Aprobada</td>
+            {% else %}
+                <td></td>
+            {% endif %}
+
+        </tr>
+    {% endfor %}
+</table>
+</br></br>
+    Nota Media = {{ notaMediaAlumno }}
+</br></br></br>
+<td><a href="{{ url('listaUsuarios') }}" class="btn btn-primary btn-lg square" role="button">Volver lista Usuarios</a></td>
+{% endblock %}

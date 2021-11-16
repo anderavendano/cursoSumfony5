@@ -1,0 +1,27 @@
+
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for item in alumnos %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.nombre }} {{ item.apellidos }}</td>
+            <td>{{ item.telefono }}</td>
+            <td>{{ item.email }}</td>
+            <td><a href="notas/{{ item.id }}" class="btn btn-primary btn-lg square" role="button">Ver notas</a></td>
+            <td><a href="asignaturas/{{ item.id }}" class="btn btn-primary btn-lg square" role="button">Ver asignatura</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

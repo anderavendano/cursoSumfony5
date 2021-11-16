@@ -1,0 +1,39 @@
+
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>Nombre</th>
+        <th></th>
+    </tr>
+    {% for item in asignaturasAlumno %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.nombre }}</td>
+            <td><a href="desmaAlumno/{{ item.id }}/{{ idAlumno }}" class="btn btn-primary btn-lg square" role="button">Desmatricular</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</br></br></br>
+Matriculación de asignaturas
+<table>
+    <tr>
+        <th>id</th>
+        <th>Nombre</th>
+        <th></th>
+    </tr>
+    {% for item in asignaturasMatri %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.nombre }}</td>
+            <td><a href="matriAlumno/{{ item.id }}/{{ idAlumno }}" class="btn btn-primary btn-lg square" role="button">Matricular</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+</br></br></br>
+<td><a href="{{ url('listaUsuarios') }}" class="btn btn-primary btn-lg square" role="button">Volver lista Usuarios</a></td>
+{% endblock %}
